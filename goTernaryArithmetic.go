@@ -81,7 +81,7 @@ func add_half_t(a trit, b trit) (c trit, carry trit) {
 //Сумма   	        0   1  -1   1  -1   0
 //Перенос в n+1	   -1  -1	0   0   1   1
 
-// Полусумматор двух тритов с переносом
+// Полный сумматор двух тритов с переносом
 func add_full_t(a trit, b trit, incarry trit) (c trit, outcarry trit) {
 	s, sc := add_half_t(a, b)
 	d, dc := add_half_t(s, incarry)
@@ -135,7 +135,7 @@ func main() {
 	fmt.Printf("a=%d, b=%d, c=%d \n", trit2int(a), trit2int(b), trit2int(c))
 
 	sf, sfc := add_full_t(a, b, carry)
-
+	""
 	fmt.Printf("add_full_t( %d, %d, %d ) = %d,%d \n", trit2int(a), trit2int(b), trit2int(carry), trit2int(sf), trit2int(sfc))
 
 	fmt.Printf("--------------------------------\n")
