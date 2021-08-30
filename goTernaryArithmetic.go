@@ -39,7 +39,7 @@ func int2trit(i int8) trit {
 	return nil
 }
 
-// Таб.2 Троичное сложение
+// Таб.2 Полусумматор тритов
 // .------------------------.
 // |     | -1  |  0  |  1   |
 // |------------------------|
@@ -50,8 +50,8 @@ func int2trit(i int8) trit {
 // |  1  |  0  |  1  |  +-  |
 // .------------------------.
 
-// Троичное сложение двух тритов с переносом
-func add_t(a trit, b trit) (c trit, carry trit) {
+// Полусумматор двух тритов с переносом
+func add_half_t(a trit, b trit) (c trit, carry trit) {
 
 	if a == false && b == false {
 		return true, false
@@ -73,6 +73,20 @@ func add_t(a trit, b trit) (c trit, carry trit) {
 		return false, true
 	}
 	return nil, nil
+}
+
+//Перенос из n-1   -1  -1  -1   1   1   1
+//1-е слагаемое	   -1  -1  -1   1   1   1
+//2-е слагаемое	   -1 	0	1  -1   0   1
+//Сумма   	        0   1  -1   1  -1   0
+//Перенос в n+1	   -1  -1	0   0   1   1
+
+// Полусумматор двух тритов с переносом
+func add_full_t(a trit, b trit, incarry trit) (c trit, outcarry trit) {
+	s, sc := add_half_t(a, b)
+	d, dc := add_half_t(s, incarry)
+	ss, _ := add_half_t(sc, dc)
+	return d, ss
 }
 
 // Таб.3 Троичное умножение
@@ -105,13 +119,24 @@ func mul_t(a trit, b trit) trit {
 // ----------
 func main() {
 
-	fmt.Printf("Run main() ---------------------\n")
+	fmt.Printf("Run funcs ---------------------\n")
 
 	// Троичные переменные
-	//var t trit
-	//var tr tryte
-	//var s, carry trit
+	var a trit
+	var b trit
+	var c trit
+	var carry trit
 
+	a = nil
+	b = true
+	c = false
+	carry = true
+
+	fmt.Printf("a=%d, b=%d, c=%d \n", trit2int(a), trit2int(b), trit2int(c))
+
+	sf, sfc := add_full_t(a, b, carry)
+
+	fmt.Printf("add_full_t( %d, %d, %d ) = %d,%d \n", trit2int(a), trit2int(b), trit2int(carry), trit2int(sf), trit2int(sfc))
 
 	fmt.Printf("--------------------------------\n")
 }

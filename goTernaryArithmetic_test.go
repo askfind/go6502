@@ -1,8 +1,8 @@
 package main
 
 import (
-  "fmt"
-  "testing"
+	"fmt"
+	"testing"
 )
 
 var tt trit
@@ -11,33 +11,33 @@ var s, carry trit
 
 func TestSetTrit(t *testing.T) {
 
-     fmt.Println("Test TRIT:")
-     fmt.Printf("tt = NIL \n")
-     tt = nil
-     fmt.Printf("tt == nil : %v \n", tt == nil)
-     fmt.Printf("tt == true : %v \n", tt == true)
-     fmt.Printf("tt == false : %v \n", tt == false)
+	fmt.Println("Test TRIT:")
+	fmt.Printf("tt = NIL \n")
+	tt = nil
+	fmt.Printf("tt == nil : %v \n", tt == nil)
+	fmt.Printf("tt == true : %v \n", tt == true)
+	fmt.Printf("tt == false : %v \n", tt == false)
 
-     fmt.Printf("tt = TRUE \n")
-     tt = true
-     fmt.Printf("tt == nil : %v \n", tt == nil)
-     fmt.Printf("tt == true : %v \n", tt == true)
-     fmt.Printf("tt == false : %v \n", tt == false)
+	fmt.Printf("tt = TRUE \n")
+	tt = true
+	fmt.Printf("tt == nil : %v \n", tt == nil)
+	fmt.Printf("tt == true : %v \n", tt == true)
+	fmt.Printf("tt == false : %v \n", tt == false)
 
-     fmt.Printf("tt = FALSE \n")
-     tt = false
-     fmt.Printf("tt == nil : %v \n", tt == nil)
-     fmt.Printf("tt == true : %v \n", tt == true)
-     fmt.Printf("tt == false : %v \n", tt == false)
-     fmt.Println("")
+	fmt.Printf("tt = FALSE \n")
+	tt = false
+	fmt.Printf("tt == nil : %v \n", tt == nil)
+	fmt.Printf("tt == true : %v \n", tt == true)
+	fmt.Printf("tt == false : %v \n", tt == false)
+	fmt.Println("")
 
-     t.Log("right")
+	t.Log("right")
 
-     //if "342.7" == Add(a, b) {
-     //  t.Log("right")
-     //} else {
-     //  t.Error("wrong")
-     //}
+	//if "342.7" == Add(a, b) {
+	//  t.Log("right")
+	//} else {
+	//  t.Error("wrong")
+	//}
 }
 
 func TestSetTryte(t *testing.T) {
@@ -47,9 +47,9 @@ func TestSetTryte(t *testing.T) {
 	tr[0] = true
 	tr[1] = false
 	fmt.Printf("tryte = %v \n", tr)
-        fmt.Println("")
+	fmt.Println("")
 
-        t.Log("right")
+	t.Log("right")
 }
 
 func TestTrit2Int(t *testing.T) {
@@ -58,9 +58,9 @@ func TestTrit2Int(t *testing.T) {
 	fmt.Printf("trit2int(true) = %v \n", trit2int(true))
 	fmt.Printf("trit2int(nil) = %v \n", trit2int(nil))
 	fmt.Printf("trit2int(false) = %v \n", trit2int(false))
-        fmt.Println("")
+	fmt.Println("")
 
-        t.Log("right")
+	t.Log("right")
 }
 
 func TestInt2Trit(t *testing.T) {
@@ -69,35 +69,57 @@ func TestInt2Trit(t *testing.T) {
 	fmt.Printf("int2trit(1) = %v \n", int2trit(1))
 	fmt.Printf("int2trit(0) = %v \n", int2trit(0))
 	fmt.Printf("int2trit(-1) = %v \n", int2trit(-1))
-        fmt.Println("")
+	fmt.Println("")
 
-        t.Log("right")
+	t.Log("right")
 }
 
-func TestAddTrits(t *testing.T) {
+func TestAddHalfTrits(t *testing.T) {
 
-	fmt.Println("Test ADD TRITS  add_t(...):")
-	s, carry = add_t(false, false)
-	fmt.Printf("add_t( -1 + -1) => %v, %v \n", s, carry)
-	s, carry = add_t(false, nil)
-	fmt.Printf("add_t( -1 +  0) => %v, %v \n", s, carry)
-	s, carry = add_t(false, true)
-	fmt.Printf("add_t( -1 +  1) => %v, %v \n", s, carry)
-	s, carry = add_t(nil, false)
-	fmt.Printf("add_t(  0 + -1) => %v, %v \n", s, carry)
-	s, carry = add_t(nil, nil)
-	fmt.Printf("add_t(  0 +  0) => %v, %v \n", s, carry)
-	s, carry = add_t(nil, true)
-	fmt.Printf("add_t(  0 +  1) => %v, %v \n", s, carry)
-	s, carry = add_t(true, false)
-	fmt.Printf("add_t(  1 + -1) => %v, %v \n", s, carry)
-	s, carry = add_t(true, nil)
-	fmt.Printf("add_t(  1 +  0) => %v, %v \n", s, carry)
-	s, carry = add_t(true, true)
-	fmt.Printf("add_t(  1 +  1) => %v, %v \n", s, carry)
-        fmt.Println("")
+	fmt.Println("Test ADD HALF TRITS  add_half_t(...):")
+	s, carry = add_half_t(false, false)
+	fmt.Printf("add_half_t( -1 + -1) => %v, %v \n", s, carry)
+	s, carry = add_half_t(false, nil)
+	fmt.Printf("add_half_t( -1 +  0) => %v, %v \n", s, carry)
+	s, carry = add_half_t(false, true)
+	fmt.Printf("add_half_t( -1 +  1) => %v, %v \n", s, carry)
+	s, carry = add_half_t(nil, false)
+	fmt.Printf("add_half_t(  0 + -1) => %v, %v \n", s, carry)
+	s, carry = add_half_t(nil, nil)
+	fmt.Printf("add_half_t(  0 +  0) => %v, %v \n", s, carry)
+	s, carry = add_half_t(nil, true)
+	fmt.Printf("add_half_t(  0 +  1) => %v, %v \n", s, carry)
+	s, carry = add_half_t(true, false)
+	fmt.Printf("add_half_t(  1 + -1) => %v, %v \n", s, carry)
+	s, carry = add_half_t(true, nil)
+	fmt.Printf("add_half_t(  1 +  0) => %v, %v \n", s, carry)
+	s, carry = add_half_t(true, true)
+	fmt.Printf("add_half_t(  1 +  1) => %v, %v \n", s, carry)
+	fmt.Println("")
 
-        t.Log("right")
+	t.Log("right")
+}
+
+func TestAddFullTrits(t *testing.T) {
+
+	fmt.Println("Test ADD FULL TRITS  add_full_t(...):")
+	s, carry = add_full_t(false, false, false)
+	fmt.Printf("add_full_t( -1 + -1 + -1) => %v, %v \n", s, carry)
+	s, carry = add_full_t(false, nil, false)
+	fmt.Printf("add_full_t( -1 + 0 + -1) => %v, %v \n", s, carry)
+	s, carry = add_full_t(false, true, false)
+	fmt.Printf("add_full_t( -1 + 1 + -1) => %v, %v \n", s, carry)
+
+	s, carry = add_full_t(false, true, true)
+	fmt.Printf("add_full_t( -1 + 1 + 1) => %v, %v \n", s, carry)
+	s, carry = add_full_t(nil, true, true)
+	fmt.Printf("add_full_t(  0 + 1 +  1) => %v, %v \n", s, carry)
+	s, carry = add_full_t(true, true, true)
+	fmt.Printf("add_full_t(  1 + 1 +  1) => %v, %v \n", s, carry)
+
+	fmt.Println("")
+
+	t.Log("right")
 }
 
 func TestMulTrits(t *testing.T) {
@@ -121,8 +143,7 @@ func TestMulTrits(t *testing.T) {
 	fmt.Printf("mul_t(  1 *  0) => %v \n", s)
 	s = mul_t(true, true)
 	fmt.Printf("mul_t(  1 *  1) => %v \n", s)
-        fmt.Println("")
+	fmt.Println("")
 
-        t.Log("right")
+	t.Log("right")
 }
-
