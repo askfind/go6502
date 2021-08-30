@@ -132,10 +132,10 @@ func main() {
 	c = false
 	carry = true
 
-	fmt.Printf("a=%d, b=%d, c=%d \n", trit2int(a), trit2int(b), trit2int(c))
+	fmt.Printf("a=%d, b=%d, c=%d, carry=%d   \n", trit2int(a), trit2int(b), trit2int(c), trit2int(carry))
 
 	sf, sfc := add_full_t(a, b, carry)
-	""
+
 	fmt.Printf("add_full_t( %d, %d, %d ) = %d,%d \n", trit2int(a), trit2int(b), trit2int(carry), trit2int(sf), trit2int(sfc))
 
 	fmt.Printf("--------------------------------\n")
