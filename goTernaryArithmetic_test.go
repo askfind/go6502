@@ -123,7 +123,6 @@ func TestAddFullTrits(t *testing.T) {
 }
 
 func TestMulTrits(t *testing.T) {
-
 	fmt.Println("Test MUL TRITS  mul_t(...):")
 	s = mul_t(false, false)
 	fmt.Printf("mul_t( -1 * -1) => %v \n", s)
@@ -146,4 +145,10 @@ func TestMulTrits(t *testing.T) {
 	fmt.Println("")
 
 	t.Log("right")
+}
+
+func BenchmarkCalculate(b *testing.B) {
+	for i := 0; i < b.N; i++ {
+		s = mul_t(false, true)
+	}
 }
